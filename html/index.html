@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" href="moi.ico" type="image/x-icon">
+		<title>FOURNIER Jérémy Portfolio</title>
+		<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://fonts.googleapis.com/css?family=Alexandria' rel='stylesheet'>
+
+	<style>
+		body {
+			margin: 0;
+			font-family: 'Alexandria';font-size: 22px;
+		}
+
+		.grid-container-projet {
+		  display: grid;
+		  grid-template-columns: repeat(3, 1fr);
+		  grid-gap: 20px;
+		  justify-content: center;
+		}
+
+		.grid-item img {
+		  display: block;
+		  margin: auto;
+		  max-width: 40%;
+		  height: auto;
+		}
+
+		.grid-item h3 {
+		  text-align: center;
+		  margin: 10px 0;
+		}
+
+		.grid-item button {
+		  display: block;
+		  margin: 0 auto;
+		  padding: 10px 20px;
+		  border: none;
+		  background-color: #4CAF50;
+		  color: white;
+		  font-size: 16px;
+		  cursor: pointer;
+		  border-radius: 20px;
+		}
+
+		.grid-item button:hover {
+		  background-color: #3e8e41;
+		}
+
+		@media screen and (max-width: 768px) {
+		  .grid-container {
+			grid-template-columns: repeat(1, 1fr);
+		  }
+		}
+
+		.banner {
+			position: relative;
+			overflow: hidden;
+			max-height: 500px;
+			margin-top: 10px;
+		}
+		  
+		.banner img {
+			display: block;
+			width: 100%;
+			height: auto;
+			filter: brightness(0.35);
+		}
+		  
+		.banner-text {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+		}
+		  
+		.banner-text h1 {
+			font-size: 3rem;
+			font-weight: bold;
+			font-style: italic;
+			color: white;
+			text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+		}
+
+		header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 20px;
+			background-color: #ffffff;
+		}
+		  
+		.logo h1 {
+			font-size: 1.5rem;
+			font-weight: bold;
+		}
+		  
+		nav ul {
+			display: flex;
+			justify-content: flex-end;
+			list-style: none;
+		}
+		  
+		nav li {
+			margin-right: 20px;
+		}
+		  
+		nav a {
+			text-decoration: none;
+			color: #333;
+			font-weight: bold;
+		}
+		nav img {
+			height: 3vh;
+		}
+
+		.grid-section {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-gap: 40px;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 40px;
+		}
+		  
+		.pdf-container {
+			position: relative;
+		}
+		  
+		.pdf-container iframe {
+			display: block;
+			width: 100%;
+			height: 500px;
+			border: none;
+		}
+		  
+		.pdf-download {
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		  
+		.pdf-download a {
+			display: inline-block;
+			padding: 10px;
+			background-color: #007bff;
+			color: #fff;
+			text-decoration: none;
+			font-weight: bold;
+			border-radius: 5px;
+		}
+		  
+		.text-container {
+			display: flex;
+			flex-direction: column;
+		}
+		.text-container h2 {
+			font-size: 36px;
+			margin-bottom: 20px;
+		}
+	
+		.text-container p {
+			font-size: 16px;
+			line-height: 1.5;
+		}
+	
+		.grid-container {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 20px;
+			justify-items: center;
+			align-items: center;
+			text-align: center;
+		}
+	
+		.grid-item {
+			text-align: center;
+		}
+	
+		.grid-item h2 {
+			font-size: 24px;
+			margin-bottom: 10px;
+		}
+	
+		.btn {
+			display: inline-block;
+			background-color: #007bff;
+			color: #fff;
+			padding: 10px 20px;
+			border-radius: 20px;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			text-decoration: none;
+			transition: background-color 0.3s ease;
+		}
+	
+		.btn:hover {
+			background-color: #0062cc;
+		}
+	
+		html {
+			scroll-behavior: smooth;
+			transition: 0.5s ease-in-out;
+		}
+	
+		.grid-container-contact {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+			grid-gap: 2rem;
+			margin: 2rem;
+		}
+	
+		.grid-item {
+			background-color: #f9f9f9;
+			padding: 2rem;
+			text-align: center;
+		}
+	
+		.form-item {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			margin-bottom: 1rem;
+		}
+	
+		.form-item label {
+			flex-basis: 30%;
+			text-align: right;
+			margin-right: 1rem;
+		}
+	
+		.form-item input,
+		.form-item textarea,
+		.form-item select {
+			flex-basis: 70%;
+			padding: 0.5rem;
+			border: 1px solid #ccc;
+		}
+	
+		.form-item button {
+			padding: 0.5rem 1rem;
+			border: none;
+			background-color: #4caf50;
+			color: #fff;
+			font-size: 1rem;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+	
+		.form-item button:hover {
+			background-color: #333;
+		}
+	
+		.social-icons {
+			display: flex;
+			justify-content: center;
+			align-items: flex-start;
+			margin-top: 20px;
+		}
+	
+		.social-icons a {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin: 0 10px;
+			text-decoration: none;
+			color: inherit;
+		}
+	
+		.social-icons a:hover {
+			color: inherit;
+		}
+	
+		.social-icons img {
+			width: 50px;
+			height: auto;
+			border-radius: 50%;
+			border: 2px solid #333;
+			margin-bottom: 10px;
+		}
+
+		
+		  
+		  
+		  
+		  
+		  
+		  
+	  </style>
+	</head>
+
+<body>
+
+	<header>
+		<div class="logo" id="top">
+		  <h1>FOURNIER Jérémy portfolio</h1>
+		</div>
+		<nav>
+		  <ul>
+			<li><a href="#top">ACCUEIL</a></li>
+			<li><a href="#profil">PROFIL</a></li>
+			<li><a href="#projets">PROJETS</a></li>
+			<li><a href="#contact">CONTACT</a></li>
+			<li><a href="index.html"><img src="fr.png" alt=""></a></li>
+			<li><a href="index_en.html"><img src="en.jpg" alt=""></a></li>
+			
+		  </ul>
+		</nav>
+	</header>
+
+	<div class="banner">
+		<img src="banniere2.jpg" alt="Banner image">
+		<div class="banner-text">
+		  <h1>ETUDIANT EN RESEAUX & TELECOMMUNICATIONS</h1>
+		</div>
+	</div>
+
+	<div class="grid-container">
+		<div class="grid-item">
+		  <h2>PROFIL</h2>
+		  <img src="profil.png" alt="Profil">
+		  <a href="#profil" class="btn">En savoir plus</a>
+		</div>
+		<div class="grid-item">
+		  <h2>PROJETS</h2>
+		  <img src="projet.png" alt="Projets">
+		  <a href="#projets" class="btn">En savoir plus</a>
+		</div>
+		<div class="grid-item">
+		  <h2>CONTACT</h2>
+		  <img src="contact.png" alt="Contact">
+		  <a href="#contact" class="btn">En savoir plus</a>
+		</div>
+	  </div>
+	  
+	  
+	<div class="banner" id="profil">
+		<img src="banniere1.jpg" alt="Banner image">
+		<div class="banner-text">
+		  <h1>PROFIL</h1>
+		</div>
+	</div>
+
+	<section class="grid-section">
+		<div class="pdf-container">
+		  <iframe src="CV_FOURNIER_JEREMY.pdf"></iframe>
+		  <div class="pdf-download">
+			<a href="CV_FOURNIER_JEREMY.pdf" download>Télécharger</a>
+		  </div>
+		</div>
+		<div class="text-container">
+		  <h2>Quelques mots</h2>
+		  <p>Je suis un professionnel en réseaux et télécommunications, spécialisé dans l'architecture TCP/IP, les protocoles de routage dynamique tels que RIP, OSPF, EIGRP, ISIS, BGP, MP-BGP, la configuration et la maintenance des réseaux LAN, les services de réseau tels que DHCP, DNS, NAT/PAT, LDAP, l'administration du réseau avec SNMP, Syslog, NTP, la sécurité avec des outils tels que Firewall, ACL, VLAN, VPN IPsec/GRE/SSL/VRF, AAA, Port security, PPP, et l'optimisation avec STP, EtherChannel. Je suis également compétent en informatique, avec une expérience en automatisation des tâches avec Bash et Powershell, en administration système sur des plateformes telles que Debian, Kali et Windows server, en gestion de bases de données avec SQL/MariaDB, en création de sites web avec HTML/CSS3/JS et WordPress, et en virtualisation avec KVM. J'ai également plusieurs certifications, notamment Cisco CCNA 1 et 2, StormShield Network Administrator (CSNA), et je suis actuellement en train de suivre une formation en Network Security de Cisco. J'ai de l'expérience en tant que technicien informatique chez Microconcept la Valentine, où j'ai effectué des réparations, des montages et des ventes de configurations d'ordinateurs, ainsi que des relations client et de la mise en rayon.</p>
+		  <h2>Situation actuelle</h2>
+		  <p>Je suis actuellement en seconde année de BUT Réseaux & Télécommunications à l'IUT de Lumniny.
+			J'effectue un stage en tant qu'assistant RSSI de la DirNum de l'université d'Aix Marseille cellule cybersécurité.
+		  </p>
+		</div>
+		
+	</section>
+	  
+	  
+	  
+
+	<div class="banner" id="projets">
+		<img src="banniere2.jpg" alt="Banner image">
+		<div class="banner-text">
+		  <h1>PROJETS</h1>
+		</div>
+	</div>
+
+	<div class="grid-container-projet">
+
+		<div class="grid-item">
+				<img src="escape.png" alt="Image 1">
+				<h3>Escape Game</h3>
+				<button onclick="window.location.href='escape.html'">Voir plus</button>
+		</div>
+
+		<div class="grid-item">
+			<img src="rss.png" alt="Image 2">
+			<h3>Agrégateur de flux RSS</h3>
+			<button onclick="window.location.href='agreg.html'">Voir plus</button>
+		</div>
+
+		<div class="grid-item">
+			<img src="hotel.png" alt="Image 3">
+			<h3>Application réservation d'hotel</h3>
+			<button onclick="window.location.href='hotel.html'">Voir plus</button>
+		</div>
+
+		<div class="grid-item">
+			<img src="lan.png" alt="Image 4">
+			<h3>Déploiement d'un réseau LAN</h3>
+			<button onclick="window.location.href='lan.html'">Voir plus</button>
+		</div>
+
+		<div class="grid-item">
+			<img src="projet.png" alt="Image 5">
+			<h3>PROJET 5</h3>
+			<button onclick="window.location.href='lien5.html'">Voir plus</button>
+		</div>
+
+		<div class="grid-item">
+			<img src="projet.png" alt="Image 6">
+			<h3>PROJET 6</h3>
+			<button onclick="window.location.href='lien6.html'">Voir plus</button>
+		</div>
+
+	</div>
+
+	<div class="banner" id="contact">
+		<img src="banniere1.jpg" alt="Banner image">
+		<div class="banner-text">
+		  <h1>CONTACT</h1>
+		</div>
+	</div>
+
+	<div class="grid-container-contact">
+		<div class="grid-item">
+		  <h2>INFORMATIONS</h2>
+		  <p>Email : jeremyfournier203@gmail.com</p>
+		  <p>Téléphone : 06 xx xx xx xx</p>
+		  <div class="social-icons">
+			<a href="https://www.linkedin.com/in/j%C3%A9r%C3%A9my-fournier-5471a4164/" target="_blank">
+			  <img src="linkedin.png" alt="Linkedin">
+			  <span>LinkedIn</span>
+			</a>
+			<a href="https://www.instagram.com/f_jeremy_/" target="_blank">
+			  <img src="instagram.png" alt="Instagram">
+			  <span>Instagram</span>
+			</a>
+			<a href="https://github.com/egoMasa/Obsidian" target="_blank">
+			  <img src="github.png" alt="Github">
+			  <span>Github</span>
+			</a>
+		  </div>
+		  
+		</div>
+		<div class="grid-item">
+		  <h2>CONTACTEZ-MOI</h2>
+		  <form action="#" method="POST">
+			<div class="form-item">
+			  <label for="email">Email:</label>
+			  <input type="email" id="email" name="email" placeholder="Votre email" required>
+			</div>
+			<div class="form-item">
+			  <label for="subject">Objet:</label>
+			  <input type="text" id="subject" name="subject" placeholder="Sujet de votre message" required>
+			</div>
+			<div class="form-item">
+			  <label for="name">Nom:</label>
+			  <input type="text" id="name" name="name" placeholder="Votre nom" required>
+			</div>
+			<div class="form-item">
+			  <label for="message">Message:</label>
+			  <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+			</div>
+			<div class="form-item">
+			  <label for="file">Fichier:</label>
+			  <input type="file" id="file" name="file">
+			</div>
+			<div class="form-item">
+			  <button type="submit">Envoyer</button>
+			</div>
+		  </form>
+		</div>
+	  </div>
+	  
+	  
+</body>
