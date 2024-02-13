@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="moi.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Alexandria' rel='stylesheet'>
+    <title>Escape game</title>
+    <style>
+        body{
+            margin: 0;
+            font-family: 'Alexandria';font-size: 22px;
+        }
+        .banner {
+			position: relative;
+			overflow: hidden;
+			max-height: 500px;
+		  }
+		  
+		  .banner img {
+			display: block;
+			width: 100%;
+			height: auto;
+			filter: brightness(0.35);
+		  }
+		  
+		  .banner-text {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+		  }
+		  
+		  .banner-text h1 {
+			font-size: 3rem;
+			font-weight: bold;
+			font-style: italic;
+			color: white;
+			text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+		  }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #f1f1f1;
+          }
+          
+          .logo h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+          }
+          
+          nav ul {
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+          }
+          
+          nav li {
+            margin-right: 20px;
+          }
+          
+          nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+          }
+          .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+          }
+          
+          .grid-item {
+            padding: 20px;
+            text-align: left;
+          }
+          
+          .grid-item img {
+            max-width: 100%;
+            height: auto;
+          }
+          h2 {
+            font-size: 36px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            color: #333;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+          }
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          }
+    
+          .competences{
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+          }
+    
+          li:hover {
+            background-color: #e0e0e0;
+          }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+          }
+        .block {
+            background-color: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .block img {
+            width: 20vw;
+            height: auto;
+            max-width: 200px;
+        }
+
+        .block h2 {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .grid-container-projet {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+            justify-content: center;
+          }
+          
+          /* CSS pour les images */
+          .grid-item img {
+            display: block;
+            margin: auto;
+            max-width: 50%;
+            max-height: 50%;
+            height: auto;
+          }
+          
+          /* CSS pour les légendes */
+          .grid-item h3 {
+            text-align: center;
+            margin: 10px 0;
+          }
+          .grid-section {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-gap: 40px;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 40px;
+		  }
+		  
+		  .pdf-container {
+			position: relative;
+		  }
+		  
+		  .pdf-container iframe {
+			display: block;
+			width: 100%;
+			height: 500px;
+			border: none;
+		  }
+		  
+		  .pdf-download {
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+		  }
+		  
+		  .pdf-download a {
+			display: inline-block;
+			padding: 10px;
+			background-color: #007bff;
+			color: #fff;
+			text-decoration: none;
+			font-weight: bold;
+			border-radius: 5px;
+		  }
+          .button_code{
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+          }
+          .button_code:hover {
+            background-color: #3e8e41;
+          }
+          .grid-container-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .grid-item-top {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .grid-item-top img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .grid-item-1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            order: 1;
+        }
+
+        .grid-item-2 {
+            order: 2;
+        }
+
+        .techno-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-gap: 20px;
+          justify-items: center;
+          align-items: center;
+          padding: 50px;
+      }
+      
+      .techno-items {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      }
+      
+      .techno-items img {
+          display: block;
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: cover;
+          width: 15vw;
+          height: 15vw;
+      }
+      
+      .techno-items button {
+          display: block;
+          margin: 10px auto;
+          padding: 10px 20px;
+          border: none;
+          background-color: #4CAF50;
+          color: white;
+          font-size: 16px;
+          cursor: pointer;
+          border-radius: 20px;
+      }
+      
+      .techno-items button:hover {
+          background-color: #3e8e41;
+      }
+      .grid-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px;
+    }
+    
+    .text-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .button-container {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .button_code {
+        display: inline-block;
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 20px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+    
+    .button_code:hover {
+        background-color: #0062cc;
+    }
+        
+          
+    </style>
+</head>
+<body>
+    
+    <header>
+		<div class="logo" id="top">
+		  <h1>FOURNIER Jérémy portfolio</h1>
+		</div>
+		<nav>
+		  <ul>
+			<li><a href="index.html#top">ACCUEIL</a></li>
+			<li><a href="index.html#profil">PROFIL</a></li>
+			<li><a href="index.html#projets">PROJETS</a></li>
+			<li><a href="index.html#contact">CONTACT</a></li>
+		  </ul>
+		</nav>
+	</header>
+
+  <div class="banner" id="contact">
+    <img src="banniere1.jpg" alt="Banner image">
+    <div class="banner-text">
+      <h1>ESCAPE GAME</h1>
+    </div>
+</div>
+
+        <div class="grid-container-top">
+          <div class="grid-item-top grid-item-1">
+              <img src="escape.png" alt="Grosse image centrée">
+          </div>
+          <div class="grid-item-top grid-item-2">
+              <h2>Présentation du projet</h2>
+              <p>Le but de ce projet est de créer un escape game constitué de 5 épreuves </p>
+              <p>Pour cela, j'ai mis en place un système de transmission différents par chacunes d'elles comme : </p>
+              <ul>
+                <li>- Infrarouge</li>
+                <li>- Ondes radio</li>
+                <li>- BLE</li>
+                <li>- Téléphonie.</li>
+              </ul>
+              <p>
+              Un site web est mis en place afin de pouvoir y jouer et pour les administrateurs de contrôler le bon avancement des équipes.
+              </p>
+                
+          </div>
+      </div>
+
+      <div class="banner" id="contact">
+        <img src="banniere1.jpg" alt="Banner image">
+        <div class="banner-text">
+          <h1>TECHNOLOGIES UTILISEES</h1>
+        </div>
+    </div>
+
+      <div class="techno-grid">
+        <div class="techno-items">
+          <img src="python.png" alt="Image 1" class="techno-img">
+          <button>Python</button>
+        </div>
+        <div class="techno-items">
+          <img src="arduino.png" alt="Image 2" class="techno-img">
+          <button>Arduino</button>
+        </div>
+        <div class="techno-items">
+          <img src="raspberry.png" alt="Image 3" class="techno-img">
+          <button>Raspberry Pi</button>
+        </div>
+        <div class="techno-items">
+          <img src="html_css_js.png" alt="Image 4" class="techno-img">
+          <button>HTML/CSS/JS</button>
+        </div>
+      </div>
+
+
+    <div class="banner" id="contact">
+        <img src="banniere1.jpg" alt="Banner image">
+        <div class="banner-text">
+          <h1>ACCES AU CONTENU</h1>
+        </div>
+    </div>
+
+    <section class="grid-section">
+      <div class="pdf-container">
+          <iframe src="Rapport_Espace Game.pdf"></iframe>
+          <div class="pdf-download">
+              <a href="Rapport_Espace Game.pdf" download>Télécharger</a>
+          </div>
+      </div>
+      <div class="text-container">
+          <h2>Documentation et liens </h2>
+          <p>Tout le code du projet est en public et disponible sur mon dépôt en ligne, pour y accéder, cliquer sur le bouton. Une documentation est aussi disponible et vous donnera plus de détails sur le principe en lui-même et sur son développement. </p>
+          <div class="button-container">
+              <a href="https://etulab.univ-amu.fr/f21202056/escape-game" class="button_code">Voir le code</a>
+          </div>
+      </div>
+      <div>
+      </div>
+  </section>
+</body>
+</html>
